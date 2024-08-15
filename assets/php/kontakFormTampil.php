@@ -37,21 +37,21 @@
                 <h2 class="text-center">Data Kontak</h2>
                 <div class="d-flex flex-row-reverse">
                     <div class="search-input-container">
-                        <input type="text" class="mr-2" id="searchInput" placeholder="Pencarian pengguna"
+                        <input type="text" class="mr-2" id="searchInput" placeholder="Pencarian Data"
                             oninput="filterTable()">
                         <a href="tambahData.php" class="btn btn-success m-1"><i class="fas fa-user-plus"></i>&nbsp;
-                            Tambah Pengguna
+                            Tambah Data
                         </a>
                     </div>
                 </div>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th>Id</th>
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Pesan</th>
-                            <th scope="col" style="text-align:center;width:18%;" data-orderable="false">Aksi</th>
+                            <th scope="col" data-orderable="false">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="usersTableBody">
@@ -65,19 +65,19 @@
                             $email = $d['email'];
                             $keterangan = $d['keterangan'];
                         ?>
-                        <tr>
-                            <td><?php echo $id; ?></td>
-                            <td><?php echo $nama; ?></td>
-                            <td><?php echo $email; ?></td>
-                            <td><?php echo $keterangan; ?></td>
-                            <td>
-                                <a href="ubahData.php?edit=<?php echo $id; ?>" class="btn btn-warning px-4">Ubah</a>
-                                <a class="btn btn-danger" href="hapusData.php?delete=<?php echo $id; ?>">
-                                    <i class="fas fa-trash"></i>
-                                    &nbsp; Hapus
-                                </a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><?php echo $id; ?></td>
+                                <td><?php echo $nama; ?></td>
+                                <td><?php echo $email; ?></td>
+                                <td><?php echo $keterangan; ?></td>
+                                <td>
+                                    <a href="ubahForm.php?edit=<?php echo $id; ?>" class="btn btn-warning px-4">Ubah</a>
+                                    <a class="btn btn-danger" href="hapusData.php?delete=<?php echo $id; ?>">
+                                        <i class="fas fa-trash"></i>
+                                        &nbsp; Hapus
+                                    </a>
+                                </td>
+                            </tr>
                         <?php
                         }
                         ?>
@@ -91,25 +91,25 @@
 <script src="../js/bs-init.js?h=d0c6de1d0ecd5065d55e7b94664b5b10"></script>
 <script src="../js/startup-modern.js?h=860a1ecddc64fd24c02f2fc109343dbd"></script>
 <script>
-function filterTable() {
-    const searchText = document.getElementById("searchInput").value.toLowerCase();
-    const rows = document.querySelectorAll("#usersTableBody tr");
+    function filterTable() {
+        const searchText = document.getElementById("searchInput").value.toLowerCase();
+        const rows = document.querySelectorAll("#usersTableBody tr");
 
-    rows.forEach((row) => {
-        const nameColumn = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
-        const idColumn = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
-        const jabatanColumn = row.querySelector("td:nth-child(4)").textContent.toLowerCase();
+        rows.forEach((row) => {
+            const nameColumn = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+            const idColumn = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+            const jabatanColumn = row.querySelector("td:nth-child(4)").textContent.toLowerCase();
 
-        if (nameColumn.includes(searchText) || idColumn.includes(searchText) || jabatanColumn
-            .includes(
-                searchText)
-        ) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
-    });
-}
+            if (nameColumn.includes(searchText) || idColumn.includes(searchText) || jabatanColumn
+                .includes(
+                    searchText)
+            ) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
 </script>
 
 </html>
