@@ -80,9 +80,9 @@ if (isset($_POST['submit'])) {
     ';
     // Kirim email
     $mail->isHTML(true);
-    $mail->setFrom($email, $name);
-    $mail->addReplyTo('poliprojek@gmail.com');
-    $mail->addAddress($email);
+    $mail->setFrom('poliprojek@gmail.com', 'Keluhan Pengguna');
+    $mail->addReplyTo($email);
+    $mail->addAddress('poliprojek@gmail.com');
     $mail->Subject = $subject;
     $mail->Body = $mail_message;
     $mail->SMTPOptions = array(
