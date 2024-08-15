@@ -72,7 +72,7 @@
                             <td><?php echo $keterangan; ?></td>
                             <td>
                                 <a href="ubahData.php?edit=<?php echo $id; ?>" class="btn btn-warning px-4">Ubah</a>
-                                <a href="#" class="btn btn-danger" href="hapusData.php?edit=<?php echo $id; ?>">
+                                <a class="btn btn-danger" href="hapusData.php?delete=<?php echo $id; ?>">
                                     <i class="fas fa-trash"></i>
                                     &nbsp; Hapus
                                 </a>
